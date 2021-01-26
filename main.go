@@ -6,6 +6,7 @@ func main() {
 
 	fmt.Println("problem1 =", problem1())
 	fmt.Println("problem2 =", problem2())
+	fmt.Println("problem3 =", problem3())
 }
 
 func problem1() int {
@@ -39,4 +40,24 @@ func problem2() int {
 		}
 	}
 	return sum
+}
+
+func problem3() int {
+	Number := 600851475143
+	i := 2
+	max := 0
+	for {
+		if Number%i == 0 {
+			Number /= i
+			if max < i {
+				max = i
+			}
+		} else {
+			i++
+		}
+		if Number < i {
+			break
+		}
+	}
+	return max
 }
