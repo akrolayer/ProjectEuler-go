@@ -1,12 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 func main() {
 
 	fmt.Println("problem1 =", problem1())
 	fmt.Println("problem2 =", problem2())
 	fmt.Println("problem3 =", problem3())
+	fmt.Println("problem4 =", problem4())
 }
 
 func problem1() int {
@@ -57,6 +61,26 @@ func problem3() int {
 		}
 		if Number < i {
 			break
+		}
+	}
+	return max
+}
+
+func problem4() int{
+	max :=0
+	for k:=0;k<1000;k++{
+		for l := 0;l<1000;l++{
+			NumberString := strconv.Itoa(k*l)
+			runes := []rune(NumberString)
+			for i, j := 0, len(runes)-1; i < j; i, j = i+1, j-1 {
+				runes[i], runes[j] = runes[j], runes[i]
+			}
+			ReverseNumberString := string(runes)
+			if NumberString == ReverseNumberString{
+				if max<k*l{
+					max = k*l
+				}
+			}
 		}
 	}
 	return max
