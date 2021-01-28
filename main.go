@@ -11,6 +11,7 @@ func main() {
 	fmt.Println("problem2 =", problem2())
 	fmt.Println("problem3 =", problem3())
 	fmt.Println("problem4 =", problem4())
+	fmt.Println("problem5 =", problem5())
 }
 
 func problem1() int {
@@ -84,4 +85,23 @@ func problem4() int{
 		}
 	}
 	return max
+}
+
+func problem5() int {
+	multiNumber := 20
+	target := 20
+	for {
+		OK := true
+		for i:=2;i<target;i++ {
+			if(multiNumber%i!=0){
+				OK = false
+				break
+			}
+		}
+		if OK {
+			break
+		}
+		multiNumber += target
+	}
+	return multiNumber
 }
