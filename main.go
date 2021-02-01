@@ -12,6 +12,7 @@ func main() {
 	fmt.Println("problem3 =", problem3())
 	fmt.Println("problem4 =", problem4())
 	fmt.Println("problem5 =", problem5())
+	fmt.Println("problem6 =", problem6())
 }
 
 func problem1() int {
@@ -104,4 +105,19 @@ func problem5() int {
 		multiNumber += target
 	}
 	return multiNumber
+}
+
+func problem6() int{
+	powsum := 0
+	sumpow := 0
+	for i := 1;i<101;i++{
+		powsum += i*i
+		sumpow += i
+	}
+	sumpow *= sumpow
+	if sumpow > powsum{
+		return sumpow-powsum
+	}else{
+		return powsum - sumpow
+	}
 }
